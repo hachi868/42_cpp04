@@ -1,10 +1,16 @@
-#ifndef __WRONGCAT_H__
-#define __WRONGCAT_H__
 
+#ifndef __CAT_H__
+#define __CAT_H__
 
-class WrongCat {
+#include "Animal.hpp"
 
+class WrongCat : public Animal {
+public:
+	WrongCat();
+	WrongCat(const WrongCat &obj);
+	WrongCat &operator = (const WrongCat &obj);
+	~WrongCat();
+	void makeSound() const;
 };
 
-
-#endif //__WRONGCAT_H__
+#endif //__CAT_H__
