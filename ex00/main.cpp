@@ -12,6 +12,7 @@
 
 int main()
 {
+	std::cout << "[test1:]" << std::endl;
 	const Animal *meta = new Animal();
 	const Animal *j = new Dog();
 	const Animal *i = new Cat();
@@ -25,6 +26,7 @@ int main()
 	delete j;
 	delete i;
 
+	std::cout << "[test2:]" << std::endl;
 //	Animal =>  WrongAnimal
 //	Cat => WrongCat
 
@@ -35,5 +37,22 @@ int main()
 
 	delete mw;
 	delete iw;
+
+	std::cout << "[test3:]" << std::endl;
+	const Animal *j_d = new Dog();
+	const Animal *i_d = new Cat();
+	std::cout << j_d->getType() << " " << std::endl;
+	std::cout << i_d->getType() << " " << std::endl;
+	j_d->makeSound();
+	i_d->makeSound();
+
+	delete j_d;
+	delete i_d;
+
+	std::cout << "[test4:]" << std::endl;
+	const WrongCat *iwc = new WrongCat();
+	iwc->makeSound();
+	delete iwc;
+
 	return (0);
 }
