@@ -16,8 +16,8 @@ Animal &Animal::operator = (const Animal &obj)
 {
 	std::cout << "[Animal] assignation operator called" << std::endl;
 	if (this != &obj)
-		this->_type = obj._type;
-	return *this;
+		this->setType(obj._type);
+	return (*this);
 }
 
 Animal::~Animal()
@@ -32,7 +32,7 @@ void Animal::makeSound() const
 
 std::string Animal::getType() const
 {
-	return this->_type;
+	return (this->_type);
 }
 
 void Animal::setType(std::string type)

@@ -16,8 +16,8 @@ WrongAnimal &WrongAnimal::operator = (const WrongAnimal &obj)
 {
 	std::cout << "[WrongAnimal] assignation operator called" << std::endl;
 	if (this != &obj)
-		this->_type = obj._type;
-	return *this;
+		setType(obj._type);
+	return (*this);
 }
 
 WrongAnimal::~WrongAnimal()
@@ -32,7 +32,7 @@ void WrongAnimal::makeSound() const
 
 std::string WrongAnimal::getType() const
 {
-	return this->_type;
+	return (this->_type);
 }
 
 void WrongAnimal::setType(std::string type)

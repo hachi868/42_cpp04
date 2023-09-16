@@ -18,8 +18,8 @@ WrongCat &WrongCat::operator = (const WrongCat &obj)
 {
 	std::cout << "[WrongCat] assignation operator called" << std::endl;
 	if (this != &obj)
-		this->getType() = obj._type;
-	return *this;
+		setType(obj._type);
+	return (*this);
 }
 
 WrongCat::~WrongCat()

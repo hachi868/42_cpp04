@@ -17,8 +17,8 @@ Dog &Dog::operator = (const Dog &obj)
 {
 	std::cout << "[Dog] assignation operator called" << std::endl;
 	if (this != &obj)
-		this->getType() = obj._type;
-	return *this;
+		this->setType(obj._type);
+	return (*this);
 }
 
 Dog::~Dog()

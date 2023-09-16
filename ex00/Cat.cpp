@@ -17,8 +17,8 @@ Cat &Cat::operator = (const Cat &obj)
 {
 	std::cout << "[Cat] assignation operator called" << std::endl;
 	if (this != &obj)
-		this->getType() = obj._type;
-	return *this;
+		this->setType(obj._type);
+	return (*this);
 }
 
 Cat::~Cat()
