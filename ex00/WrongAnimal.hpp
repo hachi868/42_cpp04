@@ -1,5 +1,5 @@
-#ifndef __ANIMAL_H__
-#define __ANIMAL_H__
+#ifndef __WRONGANIMAL_H__
+#define __WRONGANIMAL_H__
 
 class WrongAnimal {
 public:
@@ -14,4 +14,4 @@ protected:
 	std::string _type;
 };
 
-#endif //__ANIMAL_H__
+#endif //__WRONGANIMAL_H__

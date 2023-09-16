@@ -1,6 +1,6 @@
 
-#ifndef __CAT_H__
-#define __CAT_H__
+#ifndef __WRONGCAT_H__
+#define __WRONGCAT_H__
 
 #include "Animal.hpp"
 
@@ -13,4 +13,4 @@ public:
 	void makeSound() const;
 };
 
-#endif //__CAT_H__
+#endif //__WRONGCAT_H__
