@@ -2,8 +2,8 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-//#include "WrongAnimal.hpp"
-//#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 //__attribute__((destructor))
 //static void destructor() {
@@ -25,14 +25,15 @@ int main()
 	delete j;
 	delete i;
 
-//	const WrongAnimal *mw = new WrongAnimal();
-//	const WrongAnimal *iw = new WrongCat();
-//	std::cout << mw->getType() << " " << std::endl;
-//	std::cout << iw->getType() << " " << std::endl;
-//	iw->makeSound();
-//	mw->makeSound();
-//
-//	delete mw;
-//	delete iw;
-	return 0;
+//	Animal =>  WrongAnimal
+//	Cat => WrongCat
+
+	const WrongAnimal *mw = new WrongAnimal();
+	const WrongAnimal *iw = new WrongCat();
+	iw->makeSound();
+	mw->makeSound();
+
+	delete mw;
+	delete iw;
+	return (0);
 }
