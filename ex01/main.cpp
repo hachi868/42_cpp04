@@ -2,8 +2,6 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 __attribute__((destructor)) static void destructor()
 {
