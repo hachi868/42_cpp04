@@ -12,7 +12,6 @@ public:
 	void setType(std::string type);
 protected:
 	std::string _type;
-	Brain *_brain;
 };
 
 #endif //__ANIMAL_H__
