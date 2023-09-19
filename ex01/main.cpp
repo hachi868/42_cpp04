@@ -8,40 +8,50 @@ __attribute__((destructor)) static void destructor()
 	system("leaks -q ex01");
 }
 
-void testLoop(Animal *animal)
-{
+// void testLoop(Animal *animal)
+// {
 
-}
+// }
 
 int main()
 {
-	std::cout << "[test1:]" << std::endl;
+	std::cout << "[test0:]" << std::endl;
 	const Animal *dog_i = new Dog();
 	const Animal *cat_i = new Cat();
-	delete dog_i; // should not create a leak
+	dog_i->makeSound();
+	dog_i->showBrainInfo();
+	cat_i->makeSound();
+	cat_i->showBrainInfo();
+	delete dog_i;
 	delete cat_i;
+	std::cout << "----------" << std::endl;
 
-	std::cout << "[test2:]" << std::endl;
+	std::cout << "[test1:]" << std::endl;
 	int num = 6;
-	Animal *animalHorde[num];
+	Animal *animalHorde1[num];
 
 	int	i= 0;
 	while (i < num / 2)
 	{
-		animalHorde[i] = new Dog();
+		animalHorde1[i] = new Dog();
+		animalHorde1[i]->makeSound();
+		animalHorde1[i]->showBrainInfo();
 		i++;
 	}
 	while (i < num)
 	{
-		animalHorde[i] = new Cat();
+		animalHorde1[i] = new Cat();
+		animalHorde1[i]->makeSound();
+		animalHorde1[i]->showBrainInfo();
 		i++;
 	}
 	i = 0;
 	while (i < num)
 	{
-		delete animalHorde[i];
+		delete animalHorde1[i];
 		i++;
 	}
+	std::cout << "----------" << std::endl;
 
 	// std::cout << "[test0] Default constructor" << std::endl;
 	// Animal animal0;
