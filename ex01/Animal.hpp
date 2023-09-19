@@ -8,6 +8,7 @@ public:
 	Animal &operator = (const Animal &obj);
 	virtual ~Animal();
 	virtual void makeSound() const;
+	virtual void showBrainInfo() const;
 	std::string getType() const;
 	void setType(std::string type);
 protected:

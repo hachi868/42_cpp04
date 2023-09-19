@@ -45,3 +45,8 @@ void Animal::setType(std::string type)
 {
 	this->_type = type;
 }
+
+void Animal::showBrainInfo() const
+{
+	std::cout << "[Animal] 🧠showBrainInfo" << std::endl;
+}

@@ -31,5 +31,10 @@ Cat::~Cat()
 
 void Cat::makeSound() const
 {
-	std::cout << "[Cat] 🐈Meow" << std::endl;
+	std::cout << "[Cat 🐈] Meow" << std::endl;
+}
+
+void Cat::showBrainInfo() const
+{
+	std::cout << "[Cat's brains 🐈🧠] " << this->_brain << " / " << this->_brain->getIdea(0) << std::endl;
 }
