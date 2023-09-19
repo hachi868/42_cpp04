@@ -1,8 +1,8 @@
 PROG := ex02
 
 CXX := c++
-FLAGS := -Wall -Wextra -Werror
-FLAGS_ADD := -std=c++98
+CXXFLAGS := -Wall -Wextra -Werror
+CXXFLAGS += -std=c++98
 SRCS =	main.cpp \
 		Animal.cpp \
 		Dog.cpp \
@@ -11,11 +11,8 @@ SRCS =	main.cpp \
 
 OBJS := $(SRCS:.cpp=.o)
 
-%.o: %.cpp
-	$(CXX) $(FLAGS) $(FLAGS_ADD) -c $< -o $@
-
 $(PROG): $(OBJS)
-	$(CXX) $(FLAGS) $(FLAGS_ADD) -o $@ $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 
 all: $(PROG)
 
