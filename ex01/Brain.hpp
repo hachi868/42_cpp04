@@ -8,7 +8,6 @@ public:
 	Brain &operator = (const Brain &obj);
 	~Brain();
 	std::string getIdea(int index) const;
-	void setIdea(int index, std::string idea);
 	void setIdeaWhile(std::string idea);
 
 protected:

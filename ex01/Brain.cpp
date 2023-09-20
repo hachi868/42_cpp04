@@ -38,11 +38,6 @@ std::string Brain::getIdea(int index) const
 	return (this->_ideas[index]);
 }
 
-void Brain::setIdea(int index, std::string idea)
-{
-	this->_ideas[index] = idea;
-}
-
 void Brain::setIdeaWhile(std::string idea)
 {
 	int i = 0;
