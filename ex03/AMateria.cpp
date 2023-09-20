@@ -16,7 +16,7 @@ AMateria::AMateria(const AMateria &obj) : _type(obj._type)
 
 }
 
-AMateria::AMateria &operator = (const AMateria &obj)
+AMateria &AMateria::operator = (const AMateria &obj)
 {
 
 }
@@ -26,17 +26,12 @@ AMateria::~AMateria()
 
 }
 
-std::string &AMateria::getType() const
+const std::string &AMateria::getType() const
 {
 
 }
 
-AMateria *AMateria::clone() const = 0
-{
-
-}
-
-virtual void use(ICharacter &target)
+void use(ICharacter &target)
 {
 
 }
