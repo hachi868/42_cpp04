@@ -9,8 +9,8 @@ public:
 	Dog();
 	Dog(const Dog &obj);
 	Dog &operator = (const Dog &obj);
-	~Dog();
-	void makeSound() const;
+	virtual ~Dog();
+	virtual void makeSound() const;
 	void showBrainInfo() const;
 
 private:

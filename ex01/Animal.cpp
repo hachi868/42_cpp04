@@ -6,17 +6,21 @@ Animal::Animal() : _type("AnimalCommon")
 	std::cout << "[Animal] constructor called (default)" << std::endl;
 }
 
-Animal::Animal(const Animal &obj)
+Animal::Animal(const std::string type) : _type(type)
+{
+	std::cout << "[Animal] constructor called (type)" << std::endl;
+}
+
+Animal::Animal(const Animal &obj) : _type(obj._type)
 {
 	std::cout << "[Animal] copy constructor called" << std::endl;
-	*this = obj;
 }
 
 Animal &Animal::operator = (const Animal &obj)
 {
 	std::cout << "[Animal] assignation operator called" << std::endl;
 	if (this != &obj)
-		this->setType(obj._type);
+		this->_type = obj._type;
 	return (*this);
 }
 
@@ -39,11 +43,6 @@ void Animal::makeSound() const
 std::string Animal::getType() const
 {
 	return (this->_type);
-}
-
-void Animal::setType(std::string type)
-{
-	this->_type = type;
 }
 
 void Animal::showBrainInfo() const

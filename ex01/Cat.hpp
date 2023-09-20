@@ -10,9 +10,9 @@ public:
 	Cat();
 	Cat(const Cat &obj);
 	Cat &operator = (const Cat &obj);
-	~Cat();
-	void makeSound() const;
-	void showBrainInfo() const;
+	virtual ~Cat();
+	virtual void makeSound() const;
+	virtual void showBrainInfo() const;
 
 private:
 	Brain *_brain;
