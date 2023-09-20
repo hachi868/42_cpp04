@@ -1,8 +1,7 @@
-#ifndef __MATERIASOURCE_HPP__
-#define __MATERIASOURCE_HPP__
+#ifndef __IMATERIASOURCE_HPP__
+#define __IMATERIASOURCE_HPP__
 
 #include <iostream>
-#include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 
 class IMateriaSource {
@@ -12,4 +11,4 @@ public:
 	virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
-#endif //__MATERIASOURCE_HPP__
+#endif //__IMATERIASOURCE_HPP__

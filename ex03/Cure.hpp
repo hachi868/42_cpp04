@@ -10,6 +10,7 @@ public:
 	Cure(const Cure &obj);
 	Cure &operator=(const Cure &obj);
 	virtual ~Cure();
+	virtual void use(ICharacter &target);
 };
 
 #endif //__CURE_HPP__

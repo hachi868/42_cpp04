@@ -10,6 +10,7 @@ public:
 	Ice(const Ice &obj);
 	Ice &operator = (const Ice &obj);
 	virtual ~Ice();
+	virtual void use(ICharacter &target);
 };
 
 #endif //__ICE_HPP__

@@ -2,8 +2,8 @@
 // Created by hco on 2023/09/20.
 //
 
-#ifndef __CHARACTER_HPP__
-#define __CHARACTER_HPP__
+#ifndef __ICHARACTER_HPP__
+#define __ICHARACTER_HPP__
 
 #include "AMateria.hpp"
 
@@ -16,4 +16,4 @@ public:
 	virtual void use(int idx, ICharacter& target) = 0;
 };
 
-#endif //__CHARACTER_HPP__
+#endif //__ICHARACTER_HPP__
