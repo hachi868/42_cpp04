@@ -34,5 +34,5 @@ void Cat::makeSound() const
 
 void Cat::showBrainInfo() const
 {
-	std::cout << "[Cat's brains 🐈🧠] " << this->_brain << " / " << this->_brain->getIdea(0) << std::endl;
+	std::cout << "[Cat's brains 🐈🧠] " << this->_brain << std::endl;
 }

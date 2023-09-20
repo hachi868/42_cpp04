@@ -34,5 +34,5 @@ void Dog::makeSound() const
 
 void Dog::showBrainInfo() const
 {
-	std::cout << "[Dog's brains 🐕🧠] " << this->_brain << " / " << this->_brain->getIdea(0) << std::endl;
+	std::cout << "[Dog's brains 🐕🧠] " << this->_brain << std::endl;
 }
