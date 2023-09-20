@@ -5,54 +5,77 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-//__attribute__((destructor))
-//static void destructor() {
-//	system("leaks -q ex00");
-//}
+__attribute__((destructor))
+static void destructor() {
+	system("leaks -q ex00");
+}
 
 int main()
 {
-	std::cout << "[test1:]" << std::endl;
-	const Animal *meta = new Animal();
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
+	{
+		std::cout << "[test1] Animal" << std::endl;
+		const Animal *meta = new Animal();
+		const Animal *j = new Dog();
+		const Animal *i = new Cat();
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound();
+		j->makeSound();
+		meta->makeSound();
 
-	delete meta;
-	delete j;
-	delete i;
-
-	std::cout << "[test2:]" << std::endl;
-//	Animal =>  WrongAnimal
-//	Cat => WrongCat
-
-	const WrongAnimal *mw = new WrongAnimal();
-	const WrongAnimal *iw = new WrongCat();
-	iw->makeSound();
-	mw->makeSound();
-
-	delete mw;
-	delete iw;
-
-	std::cout << "[test3:]" << std::endl;
-	const Animal *j_d = new Dog();
-	const Animal *i_d = new Cat();
-	std::cout << j_d->getType() << " " << std::endl;
-	std::cout << i_d->getType() << " " << std::endl;
-	j_d->makeSound();
-	i_d->makeSound();
-
-	delete j_d;
-	delete i_d;
-
-	std::cout << "[test4:]" << std::endl;
-	const WrongCat *iwc = new WrongCat();
-	iwc->makeSound();
-	delete iwc;
-
+		delete meta;
+		delete j;
+		delete i;
+	}
+	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+	{
+		//	Animal =>  WrongAnimal
+		//	Cat => WrongCat
+		std::cout << "[test2] WrongAnimal" << std::endl;
+		const WrongAnimal *mw = new WrongAnimal();
+		const WrongAnimal *iw = new WrongCat();
+		iw->makeSound();
+		mw->makeSound();
+		delete mw;
+		delete iw;
+	}
+//	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+//	{
+//		std::cout << "[test3] Default constructor" << std::endl;
+//		Cat cat0;
+//		Dog dog0;
+//		std::cout << cat0.getType() << std::endl;
+//		std::cout << dog0.getType() << std::endl;
+//		cat0.makeSound();
+//		dog0.makeSound();
+//
+//		std::cout << "[test5] Copy constructor" << std::endl;
+//		Cat cat1(cat0);
+//		Dog dog1(dog0);
+//		std::cout << cat1.getType() << std::endl;
+//		std::cout << dog1.getType() << std::endl;
+//		cat1.makeSound();
+//		dog1.makeSound();
+//
+//		std::cout << "[test6] Copy constructor" << std::endl;
+//		Cat &cat3a = cat0;
+//		Cat cat3 = cat3a;
+//		Dog &dog3a = dog0;
+//		Dog dog3 = dog3a;
+//		std::cout << cat3.getType() << std::endl;
+//		std::cout << dog3.getType() << std::endl;
+//		cat3.makeSound();
+//		dog3.makeSound();
+//	}
+//	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+//	{
+//		std::cout << "[test7] Copy assignment & name constructor" << std::endl;
+//		Cat cat4 = Cat();
+//		Dog dog4 = Dog();
+//		std::cout << cat4.getType() << std::endl;
+//		std::cout << dog4.getType() << std::endl;
+//		cat4.makeSound();
+//		dog4.makeSound();
+//	}
 	return (0);
 }

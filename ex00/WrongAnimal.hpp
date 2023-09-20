@@ -4,12 +4,13 @@
 class WrongAnimal {
 public:
 	WrongAnimal();
+	WrongAnimal(const std::string type);
 	WrongAnimal(const WrongAnimal &obj);
 	WrongAnimal &operator = (const WrongAnimal &obj);
 	~WrongAnimal();
 	void makeSound() const;
 	std::string getType() const;
-	void setType(std::string type);
+
 protected:
 	std::string _type;
 };
