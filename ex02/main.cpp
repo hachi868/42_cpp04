@@ -10,11 +10,6 @@ __attribute__((destructor)) static void destructor()
 	system("leaks -q ex02");
 }
 
-// void testLoop(Animal *animal)
-// {
-
-// }
-
 int main()
 {
 	{
