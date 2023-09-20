@@ -15,69 +15,92 @@ __attribute__((destructor)) static void destructor()
 
 int main()
 {
-	std::cout << "[test0:]" << std::endl;
-	const Animal *dog_i = new Dog();
-	const Animal *cat_i = new Cat();
-	dog_i->makeSound();
-	dog_i->showBrainInfo();
-	cat_i->makeSound();
-	cat_i->showBrainInfo();
-	delete dog_i;
-	delete cat_i;
-	std::cout << "----------" << std::endl;
-
-	std::cout << "[test1:]" << std::endl;
-	int num = 6;
-	Animal *animalHorde1[num];
-
-	int	i= 0;
-	while (i < num / 2)
+//	{
+//		std::cout << "[test0:]" << std::endl;
+//		const Animal *dog_i = new Dog();
+//		const Animal *cat_i = new Cat();
+//		dog_i->makeSound();
+//		dog_i->showBrainInfo();
+//		cat_i->makeSound();
+//		cat_i->showBrainInfo();
+//		delete dog_i;
+//		delete cat_i;
+//		std::cout << "----------" << std::endl;
+//	}
+//	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+//	{
+//		std::cout << "[test1:]" << std::endl;
+//		int num = 6;
+//		Animal *animalHorde1[num];
+//
+//		int	i= 0;
+//		while (i < num / 2)
+//		{
+//			animalHorde1[i] = new Dog();
+//			animalHorde1[i]->makeSound();
+//			animalHorde1[i]->showBrainInfo();
+//			i++;
+//		}
+//		while (i < num)
+//		{
+//			animalHorde1[i] = new Cat();
+//			animalHorde1[i]->makeSound();
+//			animalHorde1[i]->showBrainInfo();
+//			i++;
+//		}
+//		i = 0;
+//		while (i < num)
+//		{
+//			delete animalHorde1[i];
+//			i++;
+//		}
+//	}
+	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
 	{
-		animalHorde1[i] = new Dog();
-		animalHorde1[i]->makeSound();
-		animalHorde1[i]->showBrainInfo();
-		i++;
+		std::cout << "[test2] Default constructor" << std::endl;
+		Cat cat0;
+		Dog dog0;
+		std::cout << cat0.getType() << std::endl;
+		std::cout << dog0.getType() << std::endl;
+		cat0.makeSound();
+		dog0.makeSound();
+		cat0.showBrainInfo();
+		dog0.showBrainInfo();
+		std::cout << "----------" << std::endl << std::endl;
+		std::cout << "[test3] Copy constructor" << std::endl;
+		Cat cat1(cat0);
+		Dog dog1(dog0);
+		std::cout << cat1.getType() << std::endl;
+		std::cout << dog1.getType() << std::endl;
+		cat1.makeSound();
+		dog1.makeSound();
+		cat1.showBrainInfo();
+		dog1.showBrainInfo();
+		std::cout << "----------" << std::endl << std::endl;
+
+		std::cout << "[test4] Copy constructor" << std::endl;
+		Cat &cat3a = cat0;
+		Cat cat3 = cat3a;
+		Dog &dog3a = dog0;
+		Dog dog3 = dog3a;
+		std::cout << cat3.getType() << std::endl;
+		std::cout << dog3.getType() << std::endl;
+		cat3.makeSound();
+		dog3.makeSound();
+		cat3.showBrainInfo();
+		dog3.showBrainInfo();
 	}
-	while (i < num)
-	{
-		animalHorde1[i] = new Cat();
-		animalHorde1[i]->makeSound();
-		animalHorde1[i]->showBrainInfo();
-		i++;
-	}
-	i = 0;
-	while (i < num)
-	{
-		delete animalHorde1[i];
-		i++;
-	}
-	std::cout << "----------" << std::endl;
-
-	// std::cout << "[test0] Default constructor" << std::endl;
-	// Animal animal0;
-	// testLoop(animal0);
-
-	// std::cout << "[test1] name constructor" << std::endl;
-	// Animal animal1("name_animal1");
-	// testLoop(animal1);
-
-	// std::cout << "[test2] Copy constructor" << std::endl;
-	// Animal animal2(animal1);
-	// testLoop(animal2);
-
-	// std::cout << "[test3] Copy constructor" << std::endl;
-	// Animal &animal3a = animal0;
-	// Animal animal3 = animal3a;
-	// testLoop(animal3);
-
-	// std::cout << "[test4] Copy assignment & name constructor" << std::endl;
-	// Animal animal4 = Animal("name_animal4");
-	// testLoop(animal4);
-
-	// std::cout << "[test5] new" << std::endl;
-	// Animal *animal5 = new Animal("name_animal5");
-	// testLoop(*animal5);
-	// delete animal5;
-
+//	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+//	{
+//		std::cout << "[test5] Copy assignment & name constructor" << std::endl;
+//		Cat cat4 = Cat();
+//		Dog dog4 = Dog();
+//		std::cout << cat4.getType() << std::endl;
+//		std::cout << dog4.getType() << std::endl;
+//		cat4.makeSound();
+//		dog4.makeSound();
+//		cat4.showBrainInfo();
+//		dog4.showBrainInfo();
+//	}
 	return (0);
 }
