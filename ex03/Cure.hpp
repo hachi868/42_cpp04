@@ -8,7 +8,7 @@ class Cure : public AMateria
 public:
 	Cure();
 	Cure(const Cure &obj);
-	Cure &operator=(const Cure &obj);
+	Cure &operator = (const Cure &obj);
 	virtual ~Cure();
 	virtual void use(ICharacter &target);
 };

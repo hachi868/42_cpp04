@@ -16,7 +16,6 @@ GiveawayBox::GiveawayBox() : _head(NULL)
 	std::cout << "[GiveawayBox] constructor called (default)" << std::endl;
 }
 
-
 GiveawayBox::~GiveawayBox()
 {
 	std::cout << "[GiveawayBox] destructor called" << std::endl;

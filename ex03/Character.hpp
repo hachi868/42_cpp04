@@ -6,17 +6,18 @@
 class Character : public ICharacter
 {
 public:
-	Character();
-	Character(const Character &obj);
 	Character(std::string name);
-	Character &operator=(const Character &obj);
+	Character(const Character &obj);
+	Character &operator = (const Character &obj);
 	virtual ~Character();
 	virtual std::string const & getName() const;
 	virtual void equip(AMateria *m);
 	virtual void unequip(int idx);
 	virtual void use(int idx, Character &target);
+	static GiveawayBox _giveaway;
 
 private:
+	Character();
 	std::string _name;
 };
 
