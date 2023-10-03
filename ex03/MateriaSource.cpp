@@ -1,22 +1,18 @@
-//
-// Created by hco on 2023/09/20.
-//
-
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource()
 {
-
+	std::cout << "[MateriaSource] constructor called (default)" << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &obj)
 {
-
+	std::cout << "[MateriaSource] copy constructor called" << std::endl;
 }
 
 MateriaSource::MateriaSource &operator = (const MateriaSource &obj)
 {
-
+	std::cout << "[MateriaSource] assignation operator called" << std::endl;
 }
 
 MateriaSource::~MateriaSource()
