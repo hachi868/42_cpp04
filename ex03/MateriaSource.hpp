@@ -13,8 +13,10 @@ public:
 	virtual ~MateriaSource();
 	virtual void learnMateria(AMateria *materiaNew);
 	virtual AMateria* createMateria(std::string const &type);
+
 private:
-	AMateria *_memory[4];
+	static const int MEMORY_SIZE = 4;
+	AMateria *_memory[MEMORY_SIZE];
 };
 
 #endif //__MATERIASOURCE_HPP__

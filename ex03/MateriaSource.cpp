@@ -8,13 +8,21 @@ MateriaSource::MateriaSource()
 MateriaSource::MateriaSource(const MateriaSource &obj)
 {
 	std::cout << "[MateriaSource] copy constructor called" << std::endl;
+	*this = obj;
 }
 
 MateriaSource &MateriaSource::operator = (const MateriaSource &obj)
 {
 	std::cout << "[MateriaSource] assignation operator called" << std::endl;
-//	if (this != &obj)
-//		this->_name = obj._name;
+	if (this != &obj)
+	{
+		int i = 0;
+		while (i < this->MEMORY_SIZE)
+		{
+			this->_memory[i] = obj._memory[i];
+			i++;
+		}
+	}
 	return (*this);
 }
 
@@ -22,7 +30,7 @@ MateriaSource::~MateriaSource()
 {
 	std::cout << "[MateriaSource] destructor called" << std::endl;
 	int i = 0;
-	while (i < 4)
+	while (i < this->MEMORY_SIZE)
 	{
 		if (_memory[i])
 			delete _memory[i];
@@ -33,7 +41,7 @@ MateriaSource::~MateriaSource()
 void MateriaSource::learnMateria(AMateria *materiaNew)
 {
 	int i = 0;
-	while (i < 4)
+	while (i < this->MEMORY_SIZE)
 	{
 		if (!_memory[i])
 		{
@@ -49,7 +57,7 @@ void MateriaSource::learnMateria(AMateria *materiaNew)
 AMateria* MateriaSource::createMateria(std::string const &type)
 {
 	int i = 0;
-	while (i < 4)
+	while (i < this->MEMORY_SIZE)
 	{
 		if (_memory[i]->getType() == type)
 		{
