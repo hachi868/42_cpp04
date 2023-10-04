@@ -1,15 +1,15 @@
-//
-// Created by hco on 2023/09/20.
-//
-
 #ifndef __ICHARACTER_HPP__
 #define __ICHARACTER_HPP__
 
-#include "AMateria.hpp"
+//#include "AMateria.hpp"
+class AMateria;
 
 class ICharacter {
 public:
-	virtual ~ICharacter() {}
+	virtual ~ICharacter() {
+
+		std::cout << "[ICharacter] destructor called" << std::endl;
+	};
 	virtual std::string const & getName() const = 0;
 	virtual void equip(AMateria *m) = 0;
 	virtual void unequip(int idx) = 0;

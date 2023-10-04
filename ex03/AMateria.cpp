@@ -19,6 +19,9 @@ AMateria::AMateria(const AMateria &obj) : _type(obj._type)
 AMateria &AMateria::operator = (const AMateria &obj)
 {
 	std::cout << "[AMateria] assignation operator called" << std::endl;
+	if (this != &obj)
+		this->_type = obj._type;
+	return (*this);
 }
 
 AMateria::~AMateria()
@@ -31,7 +34,7 @@ const std::string &AMateria::getType() const
 	return (this->_type);
 }
 
-void use(ICharacter &target)
+void AMateria::use(ICharacter &target)
 {
-	std::cout << "[AMateria] use func called : " << target.getName() << std::endl;
+	std::cout << "[AMateria] use func called" << std::endl;
 }

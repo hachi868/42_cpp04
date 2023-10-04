@@ -10,9 +10,12 @@ MateriaSource::MateriaSource(const MateriaSource &obj)
 	std::cout << "[MateriaSource] copy constructor called" << std::endl;
 }
 
-MateriaSource::MateriaSource &operator = (const MateriaSource &obj)
+MateriaSource &MateriaSource::operator = (const MateriaSource &obj)
 {
 	std::cout << "[MateriaSource] assignation operator called" << std::endl;
+//	if (this != &obj)
+//		this->_name = obj._name;
+	return (*this);
 }
 
 MateriaSource::~MateriaSource()

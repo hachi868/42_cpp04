@@ -3,11 +3,10 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+//class ICharacter;
 
 class AMateria
 {
-protected:
-	std::string _type;
 public:
 	AMateria();
 	AMateria(const std::string &type);
@@ -17,6 +16,9 @@ public:
 	const std::string &getType() const; //Returns the materia type
 	virtual AMateria *clone() const = 0;
 	virtual void use(ICharacter &target);
+
+protected:
+	std::string _type;
 };
 
 #endif //__AMATERIA_HPP__

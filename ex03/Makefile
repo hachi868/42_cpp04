@@ -1,9 +1,14 @@
 PROG := ex03
 
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror
+#CXXFLAGS := -Wall -Wextra -Werror
+CXXFLAGS := -Wall
 CXXFLAGS += -std=c++98
-SRCS =	main.cpp
+SRCS =	main.cpp\
+		Character.cpp\
+		MateriaSource.cpp\
+		AMateria.cpp\
+		Ice.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
