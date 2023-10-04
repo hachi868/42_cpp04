@@ -7,7 +7,6 @@ class AMateria;
 class ICharacter {
 public:
 	virtual ~ICharacter() {
-
 		std::cout << "[ICharacter] destructor called" << std::endl;
 	};
 	virtual std::string const & getName() const = 0;

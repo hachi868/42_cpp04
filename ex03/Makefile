@@ -8,7 +8,8 @@ SRCS =	main.cpp\
 		Character.cpp\
 		MateriaSource.cpp\
 		AMateria.cpp\
-		Ice.cpp
+		Ice.cpp\
+		GiveawayBox.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 

@@ -1,6 +1,6 @@
 #include "GiveawayBox.hpp"
 
-Node::Node(AMateria *materia) : _materia(materia), _next(NULL)
+Node::Node(AMateria *materia) :  _next(NULL), _materia(materia)
 {
 	std::cout << "[Node] constructor called (materia)" << std::endl;
 }
@@ -48,7 +48,7 @@ void GiveawayBox::showList() const
 {
 	Node* temp = _head;
 	while (temp) {
-		std::cout << temp->_materia->_type << " > ";
+		std::cout << temp->_materia->getType() << " > ";
 		temp = temp->_next;
 	}
 	std::cout << std::endl;

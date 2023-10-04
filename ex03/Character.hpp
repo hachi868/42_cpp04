@@ -1,6 +1,7 @@
 #ifndef __CHARACTER_HPP__
 #define __CHARACTER_HPP__
 
+#include "AMateria.hpp"
 #include "ICharacter.hpp"
 #include "GiveawayBox.hpp"
 

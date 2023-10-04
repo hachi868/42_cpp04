@@ -1,10 +1,10 @@
 #include "Ice.hpp"
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "[Ice] constructor called (default)" << std::endl;
 }
 
-Ice::Ice(const Ice &obj)
+Ice::Ice(const Ice &obj) : AMateria(obj._type)
 {
 	std::cout << "[Ice] copy constructor called" << std::endl;
 }

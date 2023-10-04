@@ -36,5 +36,5 @@ const std::string &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << "[AMateria] use func called" << std::endl;
+	std::cout << "[AMateria] use func called: " << target.getName() << std::endl;
 }

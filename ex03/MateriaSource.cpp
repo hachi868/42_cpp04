@@ -43,15 +43,17 @@ void MateriaSource::learnMateria(AMateria *materiaNew)
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
-		if (!_memory[i])
+		std::cout << "[MateriaSource] learnMateria : i: " << i << std::endl;
+		if (!this->_memory[i])
 		{
-			_memory[i] = materiaNew;
-			std::cout << "[MateriaSource] learnMateria : " << _memory[i]->getType() << std::endl;
+			this->_memory[i] = materiaNew;
+			std::cout << "[MateriaSource] learnMateria : " << this->_memory[i]->getType() << std::endl;
 			return ;
 		}
 		i++;
 	}
 	std::cout << "[MateriaSource] Can't learn Materia : FULL" << std::endl;
+	delete materiaNew;//todo: 引数でnew AMATERIAしているので。Giveawayに格納？
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)
@@ -59,10 +61,10 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
-		if (_memory[i]->getType() == type)
+		if (this->_memory[i]->getType() == type)
 		{
 			std::cout << "[MateriaSource] createMateria : " << type << std::endl;
-			return (_memory[i]->clone());
+			return (this->_memory[i]->clone());
 		}
 		i++;
 	}
