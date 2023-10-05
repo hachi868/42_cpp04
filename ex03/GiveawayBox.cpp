@@ -13,7 +13,7 @@ Node::Node(AMateria *materia) :  _next(NULL), _materia(materia)
 Node::~Node()
 {
 	std::cout << DEBUG << "[Node] destructor called" << std::endl;
-//もしかするとここでfreeでよかったかもしれない
+	delete this->_materia;
 }
 
 GiveawayBox::GiveawayBox() : _head(NULL)
@@ -24,14 +24,6 @@ GiveawayBox::GiveawayBox() : _head(NULL)
 GiveawayBox::~GiveawayBox()
 {
 	std::cout << DEBUG << "[GiveawayBox] destructor called" << RESET << std::endl;
-	Node* temp = _head;
-	Node* next;
-	while (temp) {
-		next = temp->_next;
-		delete temp;
-		temp = NULL;//ダブルフリー防ぐ
-		temp = next;
-	}
 }
 
 void GiveawayBox::addMateria(AMateria *materia)

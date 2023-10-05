@@ -63,7 +63,7 @@ void MateriaSource::learnMateria(AMateria *materiaNew)
 		i++;
 	}
 	std::cout << STATE << "[MateriaSource] Can't learn Materia : FULL" << RESET << std::endl;
-	delete materiaNew;//todo: 引数でnew AMATERIAしているので。Giveawayに格納？
+	delete materiaNew;
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)
