@@ -76,7 +76,6 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	//todo: mが存在しないmateriaの場合（ポインタ不正？typeが不正？）
 	int i = 0;
 	if (m == NULL)
 	{
@@ -85,9 +84,14 @@ void Character::equip(AMateria *m)
 	}
 	while (i < this->SLOTS_SIZE)
 	{
+		if (this->_materia[i] == m)
+		{
+			std::cout << ALERT << "[Character] equip : already equiped" << RESET << std::endl;
+			return ;
+		}
 		if (!this->_materia[i])
 		{
-			std::cout << STATE << "[Character] equip " << RESET << std::endl;
+			std::cout << STATE << "[Character] equip " << m << RESET << std::endl;
 			this->_materia[i] = m;
 			return ;
 		}

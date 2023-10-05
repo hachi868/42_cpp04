@@ -14,6 +14,7 @@ Node::~Node()
 {
 	std::cout << DEBUG << "[Node] destructor called" << std::endl;
 	delete this->_materia;
+	this->_materia = NULL;
 }
 
 GiveawayBox::GiveawayBox() : _head(NULL)

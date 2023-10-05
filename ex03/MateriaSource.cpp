@@ -3,6 +3,7 @@
 const std::string RESET = "\033[0m";
 const std::string DEBUG = "\033[90m";
 const std::string STATE = "\033[36m";
+const std::string ALERT = "\033[31m";
 const std::string MSG = "\033[34m";
 
 MateriaSource::MateriaSource()
@@ -43,8 +44,11 @@ MateriaSource::~MateriaSource()
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
-		if (_memory[i])
-			delete _memory[i];
+		if (this->_memory[i])
+		{
+			delete this->_memory[i];
+			this->_memory[i] = NULL;
+		}
 		i++;
 	}
 }
@@ -78,6 +82,6 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 		}
 		i++;
 	}
-	std::cout << STATE << "[MateriaSource] Can't create Materia : Don't know." << RESET << std::endl;
+	std::cout << ALERT << "[MateriaSource] Can't create Materia : Don't know." << RESET << std::endl;
 	return (NULL);
 }
