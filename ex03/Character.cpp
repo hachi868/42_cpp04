@@ -5,23 +5,24 @@
 const std::string RESET = "\033[0m";
 const std::string DEBUG = "\033[90m";
 const std::string STATE = "\033[36m";
+const std::string ALERT = "\033[31m";
 const std::string MSG = "\033[34m";
 
 GiveawayBox Character::_giveaway;
 
 Character::Character(std::string name) : _name(name)
 {
-	std::cout << "[Character] constructor called (name)" << std::endl;
+	std::cout << DEBUG << "[Character] constructor called (name)" << RESET << std::endl;
 }
 
 Character::Character(const Character &obj) : _name(obj._name)
 {
-	std::cout << "[Character] copy constructor called" << std::endl;
+	std::cout << DEBUG << "[Character] copy constructor called" << RESET << std::endl;
 }
 
 Character &Character::operator = (const Character &obj)
 {
-	std::cout << "[Character] assignation operator called" << std::endl;
+	std::cout << DEBUG << "[Character] assignation operator called" << RESET << std::endl;
 	if (this != &obj)
 		this->_name = obj._name;
 	return (*this);
@@ -29,7 +30,7 @@ Character &Character::operator = (const Character &obj)
 
 Character::~Character()
 {
-	std::cout << "[Character] destructor called" << std::endl;
+	std::cout << DEBUG << "[Character] destructor called" << RESET << std::endl;
 }
 
 std::string const &Character::getName() const
@@ -43,42 +44,42 @@ void Character::equip(AMateria *m)
 	int i = 0;
 	if (m == NULL)
 	{
-		std::cout << "[Character] equip : pointer is NULL" << std::endl;
+		std::cout << ALERT << "[Character] equip : pointer is NULL" << RESET << std::endl;
 		return ;
 	}
 	while (i < this->SLOTS_SIZE)
 	{
-		std::cout << "[Character] equip : i: " << i << std::endl;
+		std::cout << STATE << "[Character] equip : i: " << i << RESET << std::endl;
 		if (!this->_materia[i])
 		{
 			this->_materia[i] = m;
-			std::cout << "[Character] equip : " << this->_materia[i]->getType() << std::endl;
+			std::cout << STATE << "[Character] equip : " << this->_materia[i]->getType() << RESET << std::endl;
 			return ;
 		}
 		i++;
 	}
-	std::cout << "[Character] equip : slots FULL" << std::endl;
+	std::cout << ALERT << "[Character] equip : slots FULL" << RESET << std::endl;
 }
 
 void Character::unequip(int idx)
 {
 	if (this->_materia[idx])
 	{
-		std::cout << "[Character] unequip " << std::endl;
+		std::cout << STATE << "[Character] unequip " << RESET << std::endl;
 		_giveaway.addMateria(this->_materia[idx]);
 		this->_materia[idx] = NULL;
 	}
 	else
-		std::cout << "[Character] unequip : _materia[idx] is empty" << std::endl;
+		std::cout << ALERT << "[Character] unequip : _materia[idx] is empty" << RESET << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
 	if (this->_materia[idx])
 	{
-		std::cout << "[Character] use " << std::endl;
+		std::cout << STATE << "[Character] use " << RESET << std::endl;
 		this->_materia[idx]->use(target);
 	}
 	else
-		std::cout << "[Character] use : _materia[idx] is empty" << std::endl;
+		std::cout << ALERT << "[Character] use : _materia[idx] is empty" << RESET << std::endl;
 }

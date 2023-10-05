@@ -7,23 +7,23 @@ const std::string MSG = "\033[34m";
 
 Node::Node(AMateria *materia) :  _next(NULL), _materia(materia)
 {
-	std::cout << "[Node] constructor called (materia)" << std::endl;
+	std::cout << DEBUG << "[Node] constructor called (materia)" << RESET << std::endl;
 }
 
 Node::~Node()
 {
-	std::cout << "[Node] destructor called" << std::endl;
+	std::cout << DEBUG << "[Node] destructor called" << std::endl;
 //もしかするとここでfreeでよかったかもしれない
 }
 
 GiveawayBox::GiveawayBox() : _head(NULL)
 {
-	std::cout << "[GiveawayBox] constructor called (default)" << std::endl;
+	std::cout << "\033[90m" << "[GiveawayBox] constructor called (default)" << "\033[0m" << std::endl;
 }
 
 GiveawayBox::~GiveawayBox()
 {
-	std::cout << "[GiveawayBox] destructor called" << std::endl;
+	std::cout << DEBUG << "[GiveawayBox] destructor called" << RESET << std::endl;
 	Node* temp = _head;
 	Node* next;
 	while (temp) {

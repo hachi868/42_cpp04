@@ -7,7 +7,7 @@ const std::string MSG = "\033[34m";
 
 MateriaSource::MateriaSource()
 {
-	std::cout << "[MateriaSource] constructor called (default)" << std::endl;
+	std::cout << DEBUG << "[MateriaSource] constructor called (default)" << RESET << std::endl;
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
@@ -18,13 +18,13 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource &obj)
 {
-	std::cout << "[MateriaSource] copy constructor called" << std::endl;
+	std::cout << DEBUG << "[MateriaSource] copy constructor called" << RESET << std::endl;
 	*this = obj;
 }
 
 MateriaSource &MateriaSource::operator = (const MateriaSource &obj)
 {
-	std::cout << "[MateriaSource] assignation operator called" << std::endl;
+	std::cout << DEBUG << "[MateriaSource] assignation operator called" << RESET << std::endl;
 	if (this != &obj)
 	{
 		int i = 0;
@@ -39,7 +39,7 @@ MateriaSource &MateriaSource::operator = (const MateriaSource &obj)
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "[MateriaSource] destructor called" << std::endl;
+	std::cout << DEBUG << "[MateriaSource] destructor called" << RESET << std::endl;
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
