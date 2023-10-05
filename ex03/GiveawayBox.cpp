@@ -1,5 +1,10 @@
 #include "GiveawayBox.hpp"
 
+const std::string RESET = "\033[0m";
+const std::string DEBUG = "\033[90m";
+const std::string STATE = "\033[36m";
+const std::string MSG = "\033[34m";
+
 Node::Node(AMateria *materia) :  _next(NULL), _materia(materia)
 {
 	std::cout << "[Node] constructor called (materia)" << std::endl;

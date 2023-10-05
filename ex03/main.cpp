@@ -5,7 +5,7 @@
 #include "MateriaSource.hpp"
 #include "AMateria.hpp"
 #include "Ice.hpp"
-//#include "Cure.hpp"
+#include "Cure.hpp"
 
 __attribute__((destructor)) static void destructor()
 {
@@ -14,22 +14,28 @@ __attribute__((destructor)) static void destructor()
 
 int main()
 {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-//	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-//	tmp = src->createMateria("cure");
-//	me->equip(tmp);
-//	ICharacter* bob = new Character("bob");
-//	me->use(0, *bob);
-//	me->use(1, *bob);
-//	delete bob;
-	delete me;
-	delete src;
+	{
+		std::cout << "[test0] subject" << std::endl;
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		ICharacter* me = new Character("me");
+		AMateria* tmp;
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		ICharacter* bob = new Character("bob");
+		me->use(0, *bob);
+		me->use(1, *bob);
+		delete bob;
+		delete me;
+		delete src;
+	}
+	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+
+	return 0;
 //todo: slotがfullの場合
 //todo: slotが空の場合にuse
-	return 0;
+//todo: createMateriaできないままequipしようとした
 }

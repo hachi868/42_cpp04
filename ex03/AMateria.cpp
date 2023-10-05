@@ -1,24 +1,29 @@
 #include <iostream>
 #include "AMateria.hpp"
 
+const std::string RESET = "\033[0m";
+const std::string DEBUG = "\033[90m";
+const std::string STATE = "\033[36m";
+const std::string MSG = "\033[34m";
+
 AMateria::AMateria() : _type("undefined")
 {
-	std::cout << "[AMateria] constructor called (default)" << std::endl;
+	std::cout << DEBUG << "[AMateria] constructor called (default)" << RESET << std::endl;
 }
 
 AMateria::AMateria(const std::string &type) : _type(type)
 {
-	std::cout << "[AMateria] constructor called (type)" << std::endl;
+	std::cout << DEBUG << "[AMateria] constructor called (type)" << RESET << std::endl;
 }
 
 AMateria::AMateria(const AMateria &obj) : _type(obj._type)
 {
-	std::cout << "[AMateria] copy constructor called" << std::endl;
+	std::cout << DEBUG << "[AMateria] copy constructor called" << RESET << std::endl;
 }
 
 AMateria &AMateria::operator = (const AMateria &obj)
 {
-	std::cout << "[AMateria] assignation operator called" << std::endl;
+	std::cout << DEBUG << "[AMateria] assignation operator called" << RESET << std::endl;
 	if (this != &obj)
 		this->_type = obj._type;
 	return (*this);
@@ -26,7 +31,7 @@ AMateria &AMateria::operator = (const AMateria &obj)
 
 AMateria::~AMateria()
 {
-	std::cout << "[AMateria] destructor called" << std::endl;
+	std::cout << DEBUG << "[AMateria] destructor called" << RESET << std::endl;
 }
 
 const std::string &AMateria::getType() const
@@ -36,5 +41,5 @@ const std::string &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << "[AMateria] use func called: " << target.getName() << std::endl;
+	std::cout << STATE << "[AMateria] use func called: " << target.getName() << RESET << std::endl;
 }

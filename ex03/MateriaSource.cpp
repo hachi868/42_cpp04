@@ -1,8 +1,19 @@
 #include "MateriaSource.hpp"
 
+const std::string RESET = "\033[0m";
+const std::string DEBUG = "\033[90m";
+const std::string STATE = "\033[36m";
+const std::string MSG = "\033[34m";
+
 MateriaSource::MateriaSource()
 {
 	std::cout << "[MateriaSource] constructor called (default)" << std::endl;
+	int i = 0;
+	while (i < this->MEMORY_SIZE)
+	{
+		this->_memory[i] = NULL;
+		i++;
+	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource &obj)
@@ -43,16 +54,16 @@ void MateriaSource::learnMateria(AMateria *materiaNew)
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
-		std::cout << "[MateriaSource] learnMateria : i: " << i << std::endl;
+		std::cout << STATE << "[MateriaSource] learnMateria : i: " << i << RESET << std::endl;
 		if (!this->_memory[i])
 		{
 			this->_memory[i] = materiaNew;
-			std::cout << "[MateriaSource] learnMateria : " << this->_memory[i]->getType() << std::endl;
+			std::cout << STATE << "[MateriaSource] learnMateria : " << this->_memory[i]->getType() << RESET << std::endl;
 			return ;
 		}
 		i++;
 	}
-	std::cout << "[MateriaSource] Can't learn Materia : FULL" << std::endl;
+	std::cout << STATE << "[MateriaSource] Can't learn Materia : FULL" << RESET << std::endl;
 	delete materiaNew;//todo: 引数でnew AMATERIAしているので。Giveawayに格納？
 }
 
@@ -61,13 +72,14 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
-		if (this->_memory[i]->getType() == type)
+		std::cout << STATE << "[MateriaSource] createMateria : i: " << i << RESET << std::endl;
+		if (this->_memory[i] && this->_memory[i]->getType() == type)
 		{
-			std::cout << "[MateriaSource] createMateria : " << type << std::endl;
+			std::cout << STATE << "[MateriaSource] createMateria : " << type << RESET << std::endl;
 			return (this->_memory[i]->clone());
 		}
 		i++;
 	}
-	std::cout << "[MateriaSource] Can't create Materia : Don't know." << std::endl;
+	std::cout << STATE << "[MateriaSource] Can't create Materia : Don't know." << RESET << std::endl;
 	return (NULL);
 }

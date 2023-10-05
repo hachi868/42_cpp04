@@ -1,4 +1,10 @@
 #include "Ice.hpp"
+
+const std::string RESET = "\033[0m";
+const std::string DEBUG = "\033[90m";
+const std::string STATE = "\033[36m";
+const std::string MSG = "\033[34m";
+
 Ice::Ice() : AMateria("ice")
 {
 	std::cout << "[Ice] constructor called (default)" << std::endl;
@@ -29,5 +35,5 @@ AMateria *Ice::clone() const
 
 void Ice::use(ICharacter &target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << MSG << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
 }

@@ -1,5 +1,11 @@
 #include <iostream>
+#include <typeinfo>
 #include "Character.hpp"
+
+const std::string RESET = "\033[0m";
+const std::string DEBUG = "\033[90m";
+const std::string STATE = "\033[36m";
+const std::string MSG = "\033[34m";
 
 GiveawayBox Character::_giveaway;
 
@@ -35,6 +41,11 @@ void Character::equip(AMateria *m)
 {
 	//todo: mが存在しないmateriaの場合（ポインタ不正？typeが不正？）
 	int i = 0;
+	if (m == NULL)
+	{
+		std::cout << "[Character] equip : pointer is NULL" << std::endl;
+		return ;
+	}
 	while (i < this->SLOTS_SIZE)
 	{
 		std::cout << "[Character] equip : i: " << i << std::endl;
