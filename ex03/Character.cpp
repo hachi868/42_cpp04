@@ -31,6 +31,13 @@ Character &Character::operator = (const Character &obj)
 Character::~Character()
 {
 	std::cout << DEBUG << "[Character] destructor called" << RESET << std::endl;
+	int i = 0;
+	while (i < this->SLOTS_SIZE)
+	{
+		if (_materia[i])
+			delete _materia[i];
+		i++;
+	}
 }
 
 std::string const &Character::getName() const
@@ -75,6 +82,11 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
+	if (idx < 0 || idx >= this->SLOTS_SIZE)
+	{
+		std::cout << ALERT << "[Character] use : idx is out of range" << RESET << std::endl;
+		return ;
+	}
 	if (this->_materia[idx])
 	{
 		std::cout << STATE << "[Character] use " << RESET << std::endl;
