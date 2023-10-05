@@ -54,7 +54,6 @@ void MateriaSource::learnMateria(AMateria *materiaNew)
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
-		std::cout << STATE << "[MateriaSource] learnMateria : i: " << i << RESET << std::endl;
 		if (!this->_memory[i])
 		{
 			this->_memory[i] = materiaNew;
@@ -72,7 +71,6 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 	int i = 0;
 	while (i < this->MEMORY_SIZE)
 	{
-		std::cout << STATE << "[MateriaSource] createMateria : i: " << i << RESET << std::endl;
 		if (this->_memory[i] && this->_memory[i]->getType() == type)
 		{
 			std::cout << STATE << "[MateriaSource] createMateria : " << type << RESET << std::endl;

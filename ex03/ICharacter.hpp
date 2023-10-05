@@ -11,11 +11,11 @@ public:
 	virtual void equip(AMateria *m) = 0;
 	virtual void unequip(int idx) = 0;
 	virtual void use(int idx, ICharacter& target) = 0;
-
-protected:
-	static const int SLOTS_SIZE = 4;
-	std::string _name;
-	AMateria *_materia[SLOTS_SIZE];//deep copy?
+//
+//protected:
+//	static const int SLOTS_SIZE = 4;
+//	std::string _name;
+//	AMateria *_materia[SLOTS_SIZE];//deep copy?
 };
 
 #endif //__ICHARACTER_HPP__

@@ -13,18 +13,44 @@ GiveawayBox Character::_giveaway;
 Character::Character(std::string name) : _name(name)
 {
 	std::cout << DEBUG << "[Character] constructor called (name)" << RESET << std::endl;
+	int i = 0;
+	while (i < this->SLOTS_SIZE)
+	{
+		this->_materia[i] = NULL;
+		i++;
+	}
 }
 
 Character::Character(const Character &obj) : _name(obj._name)
 {
 	std::cout << DEBUG << "[Character] copy constructor called" << RESET << std::endl;
+	int i = 0;
+	while (i < this->SLOTS_SIZE)
+	{
+		if (obj._materia[i])
+			this->_materia[i] = obj._materia[i]->clone();
+		else
+			this->_materia[i] = NULL;
+		i++;
+	}
 }
 
 Character &Character::operator = (const Character &obj)
 {
 	std::cout << DEBUG << "[Character] assignation operator called" << RESET << std::endl;
 	if (this != &obj)
+	{
 		this->_name = obj._name;
+		int i = 0;
+		while (i < this->SLOTS_SIZE)
+		{
+			if (obj._materia[i])
+				this->_materia[i] = obj._materia[i]->clone();
+			else
+				this->_materia[i] = NULL;
+			i++;
+		}
+	}
 	return (*this);
 }
 
@@ -34,8 +60,11 @@ Character::~Character()
 	int i = 0;
 	while (i < this->SLOTS_SIZE)
 	{
-		if (_materia[i])
-			delete _materia[i];
+		if (this->_materia[i])
+		{
+			delete this->_materia[i];
+			this->_materia[i] = NULL;
+		}
 		i++;
 	}
 }
@@ -56,11 +85,10 @@ void Character::equip(AMateria *m)
 	}
 	while (i < this->SLOTS_SIZE)
 	{
-		std::cout << STATE << "[Character] equip : i: " << i << RESET << std::endl;
 		if (!this->_materia[i])
 		{
+			std::cout << STATE << "[Character] equip " << RESET << std::endl;
 			this->_materia[i] = m;
-			std::cout << STATE << "[Character] equip : " << this->_materia[i]->getType() << RESET << std::endl;
 			return ;
 		}
 		i++;
