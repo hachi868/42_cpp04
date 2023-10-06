@@ -13,6 +13,8 @@ public:
 	virtual ~Cat();
 	virtual void makeSound() const;
 	virtual void showBrainInfo() const;
+	void updateIdea(int index, const std::string& idea);
+	void printIdeas() const;
 
 private:
 	Brain *_brain;

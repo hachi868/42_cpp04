@@ -8,7 +8,9 @@ public:
 	Brain &operator = (const Brain &obj);
 	~Brain();
 	std::string getIdea(int index) const;
+	const std::string *getPtr(int index) const;
 	void setIdeaWhile(std::string idea);
+	void setIdea(int index, std::string idea);
 
 protected:
 	std::string _ideas[100];
