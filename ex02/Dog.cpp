@@ -10,7 +10,7 @@ Dog::Dog() : Animal("Dog")
 Dog::Dog(const Dog &obj) : Animal(obj._type)
 {
 	std::cout << "[Dog] copy constructor called" << std::endl;
-	this->_brain = new Brain();
+	this->_brain = new Brain(*obj._brain);
 }
 
 Dog &Dog::operator = (const Dog &obj)
